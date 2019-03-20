@@ -20,7 +20,7 @@ public class Merge {
     }
   }
   private static void mergesortH(int[] data, int lo, int hi, int[] opti) {
-    if (hi - lo < 50) {
+    if (hi - lo < 44) {
       insertionSort(data, lo, hi);
       return;
     }
