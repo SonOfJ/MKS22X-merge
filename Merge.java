@@ -8,19 +8,20 @@ public class Merge {
   }
   private static void insertionSort(int[] data, int lo, int hi) {
     if (data.length != 0) {
-      for(int i = lo + 1; i < hi - lo + 1; i = i + 1) { //The first element is already sorted
-        int value = data[i];
+      for (int i = 1; i < hi - lo + 1; i = i + 1) { //The first element is already sorted
+        int value = data[lo + i];
         int index = i; //Allows for the manipulation of the index without affecting i
-        while (index != 0 && data[index - 1] > value) { //index cannot be zero and the current element is smaller
-          data[index] = data[index - 1]; //Shifting
+        while (index != 0 && data[lo + index - 1] > value) { //index cannot be zero and the current element is smaller
+          data[lo + index] = data[lo + index - 1]; //Shifting
           index = index - 1; //Continue the loop towards the left
         }
-        data[index] = value; //Place the element at i at the location of the index
+        data[lo + index] = value; //Place the element at i at the location of the index
       }
     }
   }
   private static void mergesortH(int[] data, int lo, int hi, int[] opti) {
-    if (lo >= hi) {
+    if (hi - lo < 50) {
+      insertionSort(data, lo, hi);
       return;
     }
     int middle = (hi - lo) / 2 + lo; //Index for the middle of the range.
