@@ -20,7 +20,8 @@ public class Merge {
     }
   }
   private static void mergesortH(int[] data, int lo, int hi, int[] opti) {
-    if (lo >= hi) {
+    if (hi - low < 50) {
+      insertionSort(data, lo, hi);
       return;
     }
     int middle = (hi - lo) / 2 + lo; //Index for the middle of the range.
