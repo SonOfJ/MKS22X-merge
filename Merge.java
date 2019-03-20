@@ -8,7 +8,7 @@ public class Merge {
   }
   private static void insertionSort(int[] data, int lo, int hi) {
     if (data.length != 0) {
-      for(int i = lo; i < hi; i = i + 1) { //The first element is already sorted
+      for(int i = lo + 1; i < hi; i = i + 1) { //The first element is already sorted
         int value = data[i];
         int index = i; //Allows for the manipulation of the index without affecting i
         while (index != 0 && data[index - 1] > value) { //index cannot be zero and the current element is smaller
@@ -20,7 +20,7 @@ public class Merge {
     }
   }
   private static void mergesortH(int[] data, int lo, int hi, int[] opti) {
-    if (hi - lo < 50) {
+    if (hi - lo <= 50) {
       insertionSort(data, lo, hi);
       return;
     }
